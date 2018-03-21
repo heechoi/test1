@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="calculator" class="com.dgit.ex.Calculator"/>
+	<bean id="muyCalculator" class="com.dgit.ex.MyCalculator">
+		<property name="calculator" >
+			<ref bean="calculator"/>
+		</property>
+		<property name="num1" value="10"/>
+		<property name="num2" value="5"/>
+	</bean>
+	
+	
+	<bean id="taxCalculator" class="com.dgit.ex2.TaxCalculator">
+		<property name="lowTax" value="15.2"/>
+		<property name="normalTax" value="20.1"/>
+		<property name="overTax" value="25.3"/>
+	</bean>
+	<bean id="myperson" class="com.dgit.ex2.MyPerson">
+		<property name="name" value="이쁘니"/>
+		<property name="age" value="28"/>
+		<property name="pay" value="220"/>
+		<property name="taxCalculator">
+			<ref bean="taxCalculator"/>
+		</property>
+	</bean>
+	
+	<bean id="bmiCalculator" class="com.dgit.ex3.BMICalculator">
+		<property name="lowWeight" value="18.5"/>
+		<property name="normal" value="23"/>
+		<property name="overWeight" value="25"/>
+		<property name="obestiy" value="30"/>
+	</bean>
+	
+	<bean id="myInfo" class="com.dgit.ex3.MyInfo">
+		<property name="bmiCalculator">
+			<ref bean="bmiCalculator"/>
+		</property>
+		<property name="name" value="멋쟁이"/>
+		<property name="weight" value="56"/>
+		<property name="height" value="172"/>
+		<property name="hobbys">
+			<list>
+				<value>게임</value>
+				<value>TV시청</value>
+				<value>잠자기</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+</beans>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="report" class="com.dgit.ex4.Report">
+		<property name="grade1" value="90"/>
+		<property name="grade2" value="80"/>
+		<property name="grade3" value="70"/>
+		<property name="grade4" value="60"/>
+	</bean>
+	<bean id="student" class="com.dgit.ex4.StudentInfo">
+		<constructor-arg>
+			<ref bean="report"/>
+		</constructor-arg>
+		<property name="name" value="이쁘니"/>
+		<property name="stdClass" value="1"/>
+		<property name="math" value="91"/>
+		<property name="eng" value="83"/>
+		<property name="kor" value="73"/>
+	</bean>
+
+</beans>

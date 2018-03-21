@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="family" class="com.dgit.ex6.Family" 
+		c:father="홍길동 아빠" c:mother="홍길동 엄마">
+		<!-- <constructor-arg name="father">
+			<value>홍길동 아빠</value>
+		</constructor-arg>
+		<constructor-arg name="mother" value="홍길동 엄마"/> -->
+		
+		<property name="sister" value="홍길동 여동생"></property>
+	</bean>
+	
+	<bean id="student2" class="com.dgit.ex4.StudentInfo">
+		<constructor-arg>
+			<ref bean="report"/>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="family"/>
+		</constructor-arg>
+		<property name="name" value="홍길동"/>
+		<property name="stdClass" value="4"/>
+		<property name="math" value="33"/>
+		<property name="eng" value="44"/>
+		<property name="kor" value="61"/>
+	</bean>
+</beans>
